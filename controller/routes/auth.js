@@ -11,5 +11,17 @@ Router.get('/google/callback',
         // Successful authentication, redirect home.
         res.redirect('/dashboard');
     });
+
+Router.get('/verify', (req, res)=>{
+    if(req.user){
+        console.log(req.user)
+    }else{
+        console.log('Not verified')
+    }
+})
+Router.get('/logout', (req, res)=>{
+    req.logout();
+    res.redirect('/dashboard')
+})
     
 module.exports = Router;
